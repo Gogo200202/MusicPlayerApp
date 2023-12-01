@@ -1,7 +1,7 @@
 function SingIn() {
   return (
-    <div class="flex justify-center my-16 mx-16">
-    <div className=" bg-gray-400">
+    <div class="flex justify-center ">
+    <div className="p-10 px-16 rounded-lg my-16 bg-gray-400">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img

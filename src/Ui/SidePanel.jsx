@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Outlet, Link } from "react-router-dom";
 import AboutePage from "../Pages/AboutePage";
-import SingIn from "./SignIn";
+import SingIn from "../Pages/SignIn";
 function SidePanel() {
   return (
     <>
