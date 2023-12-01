@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Outlet, Link } from "react-router-dom";
 import AboutePage from "../Pages/AboutePage";
+import SingIn from "./SignIn";
 function SidePanel() {
   return (
     <>
@@ -161,7 +162,9 @@ function SidePanel() {
                     d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
                   />
                 </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+                <Link to="/SingIn" className="flex-1 ms-3 whitespace-nowrap">
+                SingIn
+                </Link>
               </a>
             </li>
             <li>
@@ -195,7 +198,6 @@ function SidePanel() {
                   <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                 </svg>
                 <Link to="/about" className="flex-1 ms-3 whitespace-nowrap">
-                  {" "}
                   About Us
                 </Link>
               </div>
@@ -204,7 +206,8 @@ function SidePanel() {
         </div>
       </div>
       <Routes>
-        <Route exact path="/about" element={<AboutePage />}></Route>
+        <Route exact path="/About" element={<AboutePage />}></Route>
+        <Route exact path="/SingIn" element={<SingIn />}></Route>
       </Routes>
     </>
   );
