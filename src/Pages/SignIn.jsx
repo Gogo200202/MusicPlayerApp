@@ -1,19 +1,18 @@
 import React from "react";
-
+import { useReducer } from "react";
 import { useState } from "react";
-
+import { useCallback } from "react";
 
 function SingIn() {
+  const [UserEmail, setUserEmail] = useState();
+  const [Possword, setPossword] = useState();
 
-  const [UserEmail,setUserEmail]=useState();
-  const [Possword,setPossword]=useState();
-
-function fortData(e){
-  e.preventDefault();
-  localStorage.setItem("UserEmail", UserEmail);
-  localStorage.setItem("Possword", Possword);
-}
-
+  function fortData(e) {
+    e.preventDefault();
+    localStorage.setItem("UserEmail", UserEmail);
+    localStorage.setItem("Possword", Possword);
+    location.reload(); 
+  }
 
   return (
     <div className="flex justify-center mb-32">
@@ -45,9 +44,7 @@ function fortData(e){
                     name="email"
                     type="email"
                     autoComplete="email"
-                     onChange={(event) =>
-                      setUserEmail(event.target.value)
-                    }
+                    onChange={(event) => setUserEmail(event.target.value)}
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -78,9 +75,7 @@ function fortData(e){
                     type="password"
                     autoComplete="current-password"
                     required
-                    onChange={(event) =>
-                      setPossword(event.target.value)
-                    }
+                    onChange={(event) => setPossword(event.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>

@@ -20,6 +20,7 @@ function fortData(e){
   }
   localStorage.setItem("UserEmail", UserEmail);
   localStorage.setItem("Possword", Possword);
+  location.reload(); 
 }
   return (
     <div className="flex justify-center ">
