@@ -8,9 +8,9 @@ import SidePanel from "./Ui/SidePanel";
 function App() {
   return (
     <>
-    <BrowserRouter>
+    
       <SidePanel />
-    </BrowserRouter>
+    
      
      </>
   );
