@@ -5,7 +5,8 @@ function AboutePage() {
         Aboute pages
       </div>
       <div className="flex justify-center text-2xl items-center mx-20 text-slate-50">
-        This is just demostrration for my front end skil this site is not functional.
+        This is just demostrration for my front end skil this site is not
+        functional. 
       </div>
     </>
   );

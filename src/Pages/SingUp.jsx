@@ -1,8 +1,31 @@
+import React from "react";
+import { useState } from "react";
+
 
 function SingUp() {
-    return (
-      <div class="flex justify-center ">
+
+  const [UserEmail,setUserEmail]=useState();
+  const [Possword,setPossword]=useState();
+  const [SecondPossword,setSecondPossword]=useState();
+
+  const [error,setError]=useState();
+
+
+function fortData(e){
+  e.preventDefault();
+  if(Possword!=SecondPossword){
+    setError("Passwords are not the same");
+  }else{
+    setError("");
+  }
+  localStorage.setItem("UserEmail", UserEmail);
+  localStorage.setItem("Possword", Possword);
+}
+  return (
+    <div className="flex justify-center ">
+      
       <div className="p-10 px-16 rounded-lg my-16 bg-gray-400">
+        
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
@@ -14,13 +37,13 @@ function SingUp() {
               Sign up to your account
             </h2>
           </div>
-  
+
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={fortData}>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="text-center block text-sm font-medium leading-6 text-gray-900"
                 >
                   Email address
                 </label>
@@ -30,61 +53,60 @@ function SingUp() {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    onChange={(event) =>
+                      setUserEmail(event.target.value)
+                    }
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
-  
+
               <div>
-                <div className="flex items-center justify-between">
-                  <label
-                    htmlFor="password"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Password
-                  </label>
-                </div>
+                <label
+                  htmlFor="password"
+                  className="text-center block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Password
+                </label>
+
                 <div className="mt-2">
                   <input
                     id="password"
                     name="password"
                     type="password"
                     autoComplete="current-password"
+                    onChange={(event) =>
+                      setPossword(event.target.value)
+                    }
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
               <div>
-                <div className="flex items-center justify-between">
-                  <label
-                    htmlFor="password"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Password
-                  </label>
-                  <div className="text-sm">
-                    <a
-                      href="#"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Forgot password?
-                    </a>
-                  </div>
-                </div>
+                <label
+                  htmlFor="password"
+                  className="text-center block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Password
+                </label>
+
                 <div className="mt-2">
                   <input
                     id="password"
                     name="password"
                     type="password"
                     autoComplete="current-password"
+                    onChange={(event) =>
+                      setSecondPossword(event.target.value)
+                    }
                     required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
-  
+
               <div>
                 <button
                   type="submit"
@@ -93,12 +115,13 @@ function SingUp() {
                   Sign in
                 </button>
               </div>
+              <div  className="text-center block text-sm font-medium leading-6 text-gray-900">{error}</div>
             </form>
           </div>
         </div>
       </div>
-      </div>
-    );
-  }
+    </div>
+  );
+}
 
 export default SingUp;
