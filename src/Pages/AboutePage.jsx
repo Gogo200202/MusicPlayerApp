@@ -1,4 +1,10 @@
+import { useLocation } from 'react-router-dom'
+
 function AboutePage() {
+
+  
+  
+
   return (
     <>
       <div className="flex justify-center text-center text-5xl text-slate-50 mx-20 mt-6 mb-2">

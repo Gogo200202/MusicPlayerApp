@@ -10,9 +10,7 @@ function SidePanel() {
   const [state, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
 
-  function handleClick() {
-    forceUpdate();
-  }
+ 
   function makeMenuOpen() {
     let menuId = document.getElementById("drawer-navigation");
     menuId.className =
@@ -48,7 +46,7 @@ function SidePanel() {
         className="flex-1   ml-[-108px]"
         onClick={(e) => {
           localStorage.clear();
-          location.reload(); 
+          forceUpdate();
         }}
       >
         Log out
@@ -183,8 +181,8 @@ function SidePanel() {
       </div>
       <Routes>
         <Route exact path="/About" element={<AboutePage />}></Route>
-        <Route exact path="/SingIn" element={<SingIn />}></Route>
-        <Route exact path="/SingUp" element={<SingUp />}></Route>
+        <Route exact path="/SingIn" element={<SingIn forceUpdate={forceUpdate}/>}></Route>
+        <Route exact path="/SingUp" element={<SingUp forceUpdate={forceUpdate} />}></Route>
       </Routes>
     </>
   );

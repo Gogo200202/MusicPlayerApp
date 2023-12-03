@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 
-function SingUp() {
+function SingUp({forceUpdate}) {
 
   const [UserEmail,setUserEmail]=useState();
   const [Possword,setPossword]=useState();
@@ -20,7 +20,7 @@ function fortData(e){
   }
   localStorage.setItem("UserEmail", UserEmail);
   localStorage.setItem("Possword", Possword);
-  location.reload(); 
+  forceUpdate();
 }
   return (
     <div className="flex justify-center ">

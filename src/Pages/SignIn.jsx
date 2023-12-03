@@ -3,19 +3,25 @@ import { useReducer } from "react";
 import { useState } from "react";
 import { useCallback } from "react";
 
-function SingIn() {
+function SingIn({forceUpdate}) {
   const [UserEmail, setUserEmail] = useState();
   const [Possword, setPossword] = useState();
+
+  
+
 
   function fortData(e) {
     e.preventDefault();
     localStorage.setItem("UserEmail", UserEmail);
     localStorage.setItem("Possword", Possword);
-    location.reload(); 
+    forceUpdate();
+   
   }
 
   return (
+    
     <div className="flex justify-center mb-32">
+      
       <div className="p-10 px-16 rounded-lg my-16 bg-gray-400">
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
