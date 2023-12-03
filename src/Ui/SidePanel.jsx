@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Outlet, Link } from "react-router-dom";
 
-import AboutePage from "../Pages/AboutePage";
+import Aboute from "../Pages/Aboute";
 import SingIn from "../Pages/SignIn";
 import SingUp from "../Pages/SingUp";
+import Home from "../Pages/Home";
 function SidePanel() {
   const [state, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -180,7 +181,8 @@ function SidePanel() {
         </div>
       </div>
       <Routes>
-        <Route exact path="/About" element={<AboutePage />}></Route>
+      <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/About" element={<Aboute />}></Route>
         <Route exact path="/SingIn" element={<SingIn forceUpdate={forceUpdate}/>}></Route>
         <Route exact path="/SingUp" element={<SingUp forceUpdate={forceUpdate} />}></Route>
       </Routes>
