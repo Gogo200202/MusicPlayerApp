@@ -78,7 +78,7 @@ import React, { useEffect,useState, useCallback, memo, useRef } from "react";
               id="default-range"
               type="range"
               className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-              value={timeUpdate}
+              value={timeUpdate|| '0'}
               onChange={soundTime}
             ></input>
             <audio />
