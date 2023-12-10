@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 function SingUp({forceUpdate}) {
@@ -7,12 +8,12 @@ function SingUp({forceUpdate}) {
   const [UserEmail,setUserEmail]=useState();
   const [Password,setPassword]=useState();
   const [SecondPassword,setSecondPassword]=useState();
-
   const [error,setError]=useState();
 
 
 function fortData(e){
   e.preventDefault();
+  const navigate = useNavigate();
   if(Password!=SecondPassword){
     setError("Passwords are not the same");
   }else{
@@ -20,7 +21,10 @@ function fortData(e){
   }
   localStorage.setItem("UserEmail", UserEmail);
   localStorage.setItem("Password", Password);
+
+
   forceUpdate();
+  navigate("/");
 }
   return (
     <div className="flex justify-center ">
@@ -29,12 +33,11 @@ function fortData(e){
         
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img
-              className="mx-auto h-10"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt="Your Company"
-            />
-            <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <svg  className="mx-auto h-10"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              
+              <path d="M16 17a3 3 0 0 1-3 3h-2a3 3 0 0 1 0-6h2a3 3 0 0 1 1 .17V1l6-1v4l-4 .67V17zM0 3h12v2H0V3zm0 4h12v2H0V7zm0 4h12v2H0v-2zm0 4h6v2H0v-2z" />
+            </svg>
+            <h2 className="mt-10  text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign up to your account
             </h2>
           </div>
@@ -44,7 +47,7 @@ function fortData(e){
               <div>
                 <label
                   htmlFor="email"
-                  className="text-center block text-sm font-medium leading-6 text-gray-900"
+                  className=" block text-sm font-medium leading-6 text-gray-900"
                 >
                   Email address
                 </label>
@@ -66,7 +69,7 @@ function fortData(e){
               <div>
                 <label
                   htmlFor="password"
-                  className="text-center block text-sm font-medium leading-6 text-gray-900"
+                  className=" block text-sm font-medium leading-6 text-gray-900"
                 >
                   Password
                 </label>
@@ -88,7 +91,7 @@ function fortData(e){
               <div>
                 <label
                   htmlFor="password"
-                  className="text-center block text-sm font-medium leading-6 text-gray-900"
+                  className=" block text-sm font-medium leading-6 text-gray-900"
                 >
                   Password
                 </label>

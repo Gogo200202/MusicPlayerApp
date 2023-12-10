@@ -21,6 +21,8 @@ function SidePanel() {
     menuId.className =
       "fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800";
   }
+
+  
   let resoldIfUserIsLoggedIn;
   if (localStorage.hasOwnProperty("UserEmail")) {
     resoldIfUserIsLoggedIn = (

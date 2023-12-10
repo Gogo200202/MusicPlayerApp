@@ -3,33 +3,35 @@ import { useReducer } from "react";
 import { useState } from "react";
 import { useCallback } from "react";
 
-function SingIn({forceUpdate}) {
+import { useNavigate } from "react-router-dom";
+
+function SingIn({ forceUpdate }) {
   const [UserEmail, setUserEmail] = useState();
   const [Password, setPassword] = useState();
-
-  
-
+  const navigate = useNavigate();
 
   function fortData(e) {
     e.preventDefault();
     localStorage.setItem("UserEmail", UserEmail);
     localStorage.setItem("Password", Password);
+
     forceUpdate();
-   
+
+    navigate("/");
   }
 
   return (
-    
     <div className="flex justify-center mb-32">
-      
       <div className="p-10 px-16 rounded-lg my-16 bg-gray-400">
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img
-              className="mx-auto h-10"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt="Your Company"
-            />
+          
+
+            <svg  className="mx-auto h-10"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              
+              <path d="M16 17a3 3 0 0 1-3 3h-2a3 3 0 0 1 0-6h2a3 3 0 0 1 1 .17V1l6-1v4l-4 .67V17zM0 3h12v2H0V3zm0 4h12v2H0V7zm0 4h12v2H0v-2zm0 4h6v2H0v-2z" />
+            </svg>
+
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               Sign in to your account
             </h2>
@@ -65,14 +67,6 @@ function SingIn({forceUpdate}) {
                   >
                     Password
                   </label>
-                  <div className="text-sm">
-                    <a
-                      href="#"
-                      className="font-semibold text-indigo-600 hover:text-indigo-500"
-                    >
-                      Forgot password?
-                    </a>
-                  </div>
                 </div>
                 <div className="mt-2">
                   <input
