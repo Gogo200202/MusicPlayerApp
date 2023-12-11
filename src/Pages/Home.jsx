@@ -8,8 +8,11 @@ const namesOfAudioFiles=["FYRE","FNAF Survive the Night"];
 let component=[];
 for (let index = 0; index < namesOfAudioFiles.length; index++) {
   let audio = new Audio("/music/"+namesOfAudioFiles[index]+".mp3");
+  
   let currentComponent=<MusicPlayer key={index}  prop={{audio:audio}}/>
   component.push(currentComponent);
+ 
+  
 }
 
 
