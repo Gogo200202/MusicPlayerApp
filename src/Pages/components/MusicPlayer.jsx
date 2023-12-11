@@ -17,7 +17,7 @@ function MusicPlayer({ prop }) {
   };
 
   let startButton = (
-    <button className="" onClick={start}>
+    <button className="mx-2" onClick={start}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="#000000"
@@ -86,15 +86,20 @@ function MusicPlayer({ prop }) {
   let AllMinutes = duration / 60;
   let currentTimeMInets=prop.audio.currentTime / 60;
 
+
+
+
   return (
-    <div className=" text-center w-40 bg-gray-400 rounded-lg">
+    <div className="relative text-center w-64 bg-gray-400 rounded-lg">
+    
+    <img   className=" object-scale-down h-20 w-20 absolute bottom-0 left-0 mb-5" src={prop.Img.src} alt="Logo" />
+  
       {button}
 
       
       <input
-        id="default-range"
         type="range"
-        className="ml-16 -rotate-90 w-36 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+        className=" left-0 -mr-40 -rotate-90 w-20 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
         onChange={soundVolume}
       ></input>
 
@@ -104,8 +109,9 @@ function MusicPlayer({ prop }) {
       >
         { currentTimeMInets.toFixed(2) +":"+AllMinutes.toFixed(2)}
       </label>
+      
       <input
-        id="default-range"
+   
         type="range"
         className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
         value={timeUpdate || "0"}
