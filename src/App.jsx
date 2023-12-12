@@ -10,6 +10,7 @@ import Home from "./Pages/Home"
 
 
 function App() {
+  // to not reload footer every time
   const footer = React.useMemo( () => <Footer/>, [] );
   return (
     <>

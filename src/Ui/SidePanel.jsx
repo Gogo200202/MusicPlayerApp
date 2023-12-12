@@ -8,8 +8,9 @@ import SingIn from "../Pages/SignIn";
 import SingUp from "../Pages/SingUp";
 import Home from "../Pages/Home";
 function SidePanel() {
-  const [state, updateState] = React.useState();
-  const forceUpdate = React.useCallback(() => updateState({}), []);
+  const [state, updateState] = useState();
+  // use for update to pass down components to reload virtual dom
+  const forceUpdate = useCallback(() => updateState({}), []);
 
   function makeMenuOpen() {
     let menuId = document.getElementById("drawer-navigation");
@@ -22,7 +23,7 @@ function SidePanel() {
       "fixed top-0 left-0 z-40 w-64 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white dark:bg-gray-800";
   }
 
-  
+  // if user is SingIn change side panel
   let resoldIfUserIsLoggedIn;
   if (localStorage.hasOwnProperty("UserEmail")) {
     resoldIfUserIsLoggedIn = (

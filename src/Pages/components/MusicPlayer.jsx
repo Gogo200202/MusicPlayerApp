@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useCallback, memo, useRef } from "react";
 
 function MusicPlayer({ prop }) {
+  // update timer on sound playing
   let [timeUpdate, setTimeUpdate] = useState();
-
+  // get duration on load 
   let [duration, setDuration] = useState(0);
 
-
+  // play music put stop button
   const start = () => {
     prop.audio.play();
     setButton(stopButton);
   };
 
+ // stop music put play button
   const stop = () => {
     prop.audio.pause();
     setButton(startButton);
@@ -47,18 +49,20 @@ function MusicPlayer({ prop }) {
       </svg>
     </button>
   );
-
+// make range tag to audio volume
   const soundVolume = (e) => {
     let num = e.target.value / 100;
     prop.audio.volume = num.toFixed(2);
   };
 
+  // change time on audion on range update
   const soundTime = (e) => {
     let percentage = e.target.value / 100;
     let result = prop.audio.duration * percentage;
     prop.audio.currentTime = result;
   };
 
+  // update curetTime on range attribute
   function ChangeTimeOnRage(e) {
     let result =
       (e.originalTarget.currentTime / e.originalTarget.duration) * 100;
@@ -74,6 +78,7 @@ function MusicPlayer({ prop }) {
 
   }, []);
 
+  // check if audi is playing on load to plays correct button
   let firstButton;
   if (!prop.audio.paused) {
     firstButton = stopButton;
@@ -83,6 +88,7 @@ function MusicPlayer({ prop }) {
 
   let [button, setButton] = useState(firstButton);
 
+  // set current  time and duration time
   let AllMinutes = duration / 60;
   let currentTimeMInets=prop.audio.currentTime / 60;
 
@@ -93,7 +99,6 @@ function MusicPlayer({ prop }) {
     <div className="relative text-center w-64 bg-gray-400 rounded-lg">
     
     <img   className=" object-scale-down h-20 w-20 absolute bottom-0 left-0 mb-5" src={prop.Img.src} alt="Logo" />
-  
       {button}
 
       
