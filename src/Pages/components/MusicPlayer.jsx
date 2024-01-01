@@ -64,6 +64,7 @@ function MusicPlayer({ prop }) {
 
   // update curetTime on range attribute
   function ChangeTimeOnRage(e) {
+    setDuration(prop.audio.duration);
     let result =
       (e.originalTarget.currentTime / e.originalTarget.duration) * 100;
     setTimeUpdate(result);
@@ -71,11 +72,7 @@ function MusicPlayer({ prop }) {
 
   useEffect(() => {
     prop.audio.addEventListener("timeupdate", ChangeTimeOnRage);
-    
-    prop.audio.onloadedmetadata=()=>{
-      setDuration(prop.audio.duration);
-    }
-
+  
   }, []);
 
   // check if audi is playing on load to plays correct button
