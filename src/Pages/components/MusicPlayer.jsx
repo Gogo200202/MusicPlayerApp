@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, memo, useRef } from "react";
+import React, { useMemo,useEffect, useState, useCallback, memo, useRef } from "react";
 
 function MusicPlayer({ prop }) {
   // update timer on sound playing
@@ -64,16 +64,36 @@ function MusicPlayer({ prop }) {
 
   // update curetTime on range attribute
   function ChangeTimeOnRage(e) {
-    setDuration(prop.audio.duration);
+    
     let result =
       (e.originalTarget.currentTime / e.originalTarget.duration) * 100;
     setTimeUpdate(result);
+
+
   }
 
   useEffect(() => {
     prop.audio.addEventListener("timeupdate", ChangeTimeOnRage);
-  
+    prop.audio.onloadedmetadata=()=>{
+      setDuration(prop.audio.duration);
+    }
   }, []);
+  // cache duration between reloading 
+  let cacheDuration  = useMemo(() => {
+    if(duration==0){
+      return prop.audio.duration;
+    }
+     return duration;
+  });
+
+  // cache duration between reloading 
+  let cacheCurrentPlayTime  = useMemo(() => {
+     let result =(prop.audio.currentTime / prop.audio.duration) * 100;
+     return result;
+  });
+  
+
+console.log(cacheDuration);
 
   // check if audi is playing on load to plays correct button
   let firstButton;
@@ -86,7 +106,7 @@ function MusicPlayer({ prop }) {
   let [button, setButton] = useState(firstButton);
 
   // set current  time and duration time
-  let AllMinutes = duration / 60;
+  let AllMinutes = cacheDuration / 60;
   let currentTimeMInets=prop.audio.currentTime / 60;
 
 
@@ -116,7 +136,7 @@ function MusicPlayer({ prop }) {
    
         type="range"
         className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-        value={timeUpdate || "0"}
+        value={timeUpdate ||cacheCurrentPlayTime}
         onChange={soundTime}
       ></input>
       <audio />
