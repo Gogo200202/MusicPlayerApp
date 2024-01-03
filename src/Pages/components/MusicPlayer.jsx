@@ -5,7 +5,6 @@ function MusicPlayer({ prop }) {
   let [timeUpdate, setTimeUpdate] = useState();
   // get duration on load 
   let [duration, setDuration] = useState(0);
-
   // play music put stop button
   const start = () => {
     prop.audio.play();
@@ -77,7 +76,7 @@ function MusicPlayer({ prop }) {
       setDuration(prop.audio.duration);
     }
   }, []);
-  
+
   // cache duration between reloading 
   let cacheDuration  = useMemo(() => {
     if(duration==0){
@@ -92,6 +91,7 @@ function MusicPlayer({ prop }) {
      return result;
   });
   
+
 
 
 
