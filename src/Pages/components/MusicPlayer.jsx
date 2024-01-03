@@ -69,7 +69,6 @@ function MusicPlayer({ prop }) {
       (e.originalTarget.currentTime / e.originalTarget.duration) * 100;
     setTimeUpdate(result);
 
-
   }
 
   useEffect(() => {
@@ -78,6 +77,7 @@ function MusicPlayer({ prop }) {
       setDuration(prop.audio.duration);
     }
   }, []);
+  
   // cache duration between reloading 
   let cacheDuration  = useMemo(() => {
     if(duration==0){
@@ -93,7 +93,7 @@ function MusicPlayer({ prop }) {
   });
   
 
-console.log(cacheDuration);
+
 
   // check if audi is playing on load to plays correct button
   let firstButton;
@@ -105,7 +105,7 @@ console.log(cacheDuration);
 
   let [button, setButton] = useState(firstButton);
 
-  // set current  time and duration time
+  // set current time and duration time
   let AllMinutes = cacheDuration / 60;
   let currentTimeMInets=prop.audio.currentTime / 60;
 
