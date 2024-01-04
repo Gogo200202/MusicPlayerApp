@@ -111,7 +111,6 @@ function MusicPlayer({ prop }) {
 
 
 
-
   return (
     <div className="relative text-center w-64 bg-gray-400 rounded-lg">
     

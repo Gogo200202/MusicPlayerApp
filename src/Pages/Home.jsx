@@ -21,11 +21,14 @@ function Home() {
   let [componentRender, setComponentRender] = useState([]);
 // create url blot and then create audio object to blob url
   function handleSubmit(event) {
+  
     event.preventDefault();
-    var files = event.target.files;
-    var urlBlob= URL.createObjectURL(files[0]);
-    let audio = new Audio(urlBlob);
+    const formData = new FormData(event.target);
+    let urlBlobAudio= URL.createObjectURL(formData.get("audio"));
+    let audio = new Audio(urlBlobAudio);
+    let urlBlobImg= URL.createObjectURL(formData.get("img"));
     let Img = new Image();
+    Img.src=urlBlobImg;
     // add it to the array to be stored in memory for rerouting
     let currentComponent=<MusicPlayer key={count}  prop={{audio:audio,Img:Img}}/>
        // TO DO fined a way to chase music after loading 
@@ -38,9 +41,22 @@ function Home() {
   return (
     <div className="grid grid-cols-2 gap-2 m-16">
       
-      <input className="absolute top-0 right-40" onChange={handleSubmit} type="file" value="" />
+      <form onSubmit={handleSubmit} className="absolute top-12 right-12"  id="form">
       
-        {componentPreRendered}
+      <p>
+          <label>Add audion (single): </label>
+          <input type="file" name="audio" />
+      </p>
+      <p>
+        <label>Add img (single): </label>
+        <input type="file" name="img" />
+    </p>
+
+      <p>
+      <button type="submit" name="submit" >Button</button>
+      </p>
+  </form>
+      {componentPreRendered}
         {componentRender}
        
     </div>
