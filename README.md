@@ -1,5 +1,6 @@
 # MusicPlayerApp
  MusicPlayerApp
+ [![Deploy static content to Pages](https://github.com/Gogo200202/MusicPlayerApp/actions/workflows/deploy.yml/badge.svg)](https://github.com/Gogo200202/MusicPlayerApp/actions/workflows/deploy.yml)
 
 ## Demo link:
 Access my site at : [My site](https://gogo200202.github.io/MusicPlayerApp/)
