@@ -204,7 +204,7 @@ function SidePanel() {
         </div>
       </div>
       <Routes>
-        <Route exact path="/" element={<Home />}></Route>
+        <Route exact path="/MusicPlayerApp" element={<Home />}></Route>
         <Route exact path="/About" element={<About />}></Route>
         <Route
           exact
