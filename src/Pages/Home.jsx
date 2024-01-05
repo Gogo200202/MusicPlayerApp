@@ -9,9 +9,9 @@ let count=namesOfAudioFiles.length;
 
 let componentPreRendered=[];
 for (let index = 0; index < namesOfAudioFiles.length; index++) {
-  let audio = new Audio("/music/"+namesOfAudioFiles[index]+".mp3");
+  let audio = new Audio("/MusicPlayerApp/assets/music/"+namesOfAudioFiles[index]+".mp3");
   let Img = new Image();
-    Img.src="/Img/"+namesOfAudioFiles[index]+".jpg"
+    Img.src="/MusicPlayerApp/assets/Img/"+namesOfAudioFiles[index]+".jpg"
   let currentComponent=<MusicPlayer key={index}  prop={{audio:audio,Img:Img}}/>
   componentPreRendered.push(currentComponent);
 }
