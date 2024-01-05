@@ -11,8 +11,6 @@ Access my site at : [My site](https://gogo200202.github.io/MusicPlayerApp/)
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
 - [Setup](#setup)
-- [Approach](#approach)
-- [Status](#status)
 
 ## About The App
 MusicPlayerApp is an app simple music player that runs exclusively in browser 
@@ -30,8 +28,3 @@ I used `html`, `css`, `react`,`js`,`tailwind`,`vite`
 - download or clone the repository
 - run `npm run dev`
 
-## Approach
-I adopted the `BEM` naming style for my css class names and ...
-
-## Status
-MusicPlayerApp is still in progress.
