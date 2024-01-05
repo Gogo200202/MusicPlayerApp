@@ -21,9 +21,14 @@ function Home() {
   let [componentRender, setComponentRender] = useState([]);
 // create url blot and then create audio object to blob url
   function handleSubmit(event) {
-  
     event.preventDefault();
     const formData = new FormData(event.target);
+    if(formData.get("audio").name==""){
+          return;
+    }
+    if(formData.get("img").name==""){
+        return;
+    }
     let urlBlobAudio= URL.createObjectURL(formData.get("audio"));
     let audio = new Audio(urlBlobAudio);
     let urlBlobImg= URL.createObjectURL(formData.get("img"));
@@ -44,12 +49,12 @@ function Home() {
       <form onSubmit={handleSubmit} className="space-y-8 font-[sans-serif] max-w-md ml-64"  id="form">
       <label className="text-gray-200">Add audion (single): </label>
       <input type="file" name="audio"
-        class=" text-black text-base bg-gray-400 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded" />
+        className=" text-black text-base bg-gray-400 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded" />
        <br/>
       <label className="text-gray-200">Add img (single): </label>
       <br/>
       <input type="file"name="img"
-        class=" text-black text-base bg-gray-400 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded" />
+        className=" text-black text-base bg-gray-400 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded" />
      <br/>
       <button type="submit" name="submit" 
       className=" bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
