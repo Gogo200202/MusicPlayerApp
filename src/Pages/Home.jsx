@@ -2,7 +2,7 @@ import React, { useMemo,useEffect,useState, useCallback, memo, useRef } from "re
 import MusicPlayer from "./components/MusicPlayer";
 // name corresponding to the names in public/music and public/img 
 
-const namesOfAudioFiles=["FYRE","FNAFSurvivetheNight"];
+const namesOfAudioFiles=["massobeats","Calm"];
 let count=namesOfAudioFiles.length;
 // use for to loop through all name from namesOfAudioFiles to load audio and img
 // and add them to the arr of components 
@@ -40,22 +40,23 @@ function Home() {
   }
   return (
     <div className="grid grid-cols-2 gap-2 m-16">
-      
-      <form onSubmit={handleSubmit} className="absolute top-12 right-12"  id="form">
-      
-      <p>
-          <label>Add audion (single): </label>
-          <input type="file" name="audio" />
-      </p>
-      <p>
-        <label>Add img (single): </label>
-        <input type="file" name="img" />
-    </p>
-
-      <p>
-      <button type="submit" name="submit" >Button</button>
-      </p>
+ 
+      <form onSubmit={handleSubmit} className="space-y-8 font-[sans-serif] max-w-md ml-64"  id="form">
+      <label className="text-gray-200">Add audion (single): </label>
+      <input type="file" name="audio"
+        class=" text-black text-base bg-gray-400 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded" />
+       <br/>
+      <label className="text-gray-200">Add img (single): </label>
+      <br/>
+      <input type="file"name="img"
+        class=" text-black text-base bg-gray-400 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded" />
+     <br/>
+      <button type="submit" name="submit" 
+      className=" bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+      >Button</button>
+     
   </form>
+  <div></div>
       {componentPreRendered}
         {componentRender}
        
