@@ -63,9 +63,9 @@ function MusicPlayer({ prop }) {
 
   // update curetTime on range attribute
   function ChangeTimeOnRage(e) {
-    
+    console.log(e);
     let result =
-      (e.originalTarget.currentTime / e.originalTarget.duration) * 100;
+      (e.currentTarget.currentTime / e.currentTarget.duration) * 100;
     setTimeUpdate(result);
 
   }
