@@ -16,9 +16,8 @@ for (let index = 0; index < namesOfAudioFiles.length; index++) {
   componentPreRendered.push(currentComponent);
 }
 
-function Home() {
-
-  let [componentRender, setComponentRender] = useState([]);
+function Home() { 
+   let [componentRender, setComponentRender] = useState([]);
 // create url blot and then create audio object to blob url
   function handleSubmit(event) {
     event.preventDefault();
@@ -46,8 +45,9 @@ function Home() {
   return (
     <div className="grid grid-cols-2 gap-2 m-16">
  
-      <form onSubmit={handleSubmit} className="space-y-8 font-[sans-serif] max-w-md ml-64"  id="form">
+      <form onSubmit={handleSubmit} className=""  id="form">
       <label className="text-gray-200">Add audion (single): </label>
+      <br/>
       <input type="file" name="audio"
         className=" text-black text-base bg-gray-400 file:cursor-pointer cursor-pointer file:border-0 file:py-2.5 file:px-4 file:mr-4 file:bg-gray-800 file:hover:bg-gray-700 file:text-white rounded" />
        <br/>
