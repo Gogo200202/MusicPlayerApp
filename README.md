@@ -26,5 +26,6 @@ I used `html`, `css`, `react`,`js`,`tailwind`,`vite`
 
 ## Setup
 - download or clone the repository
+- install dependency`npm i`
 - run `npm run dev`
 

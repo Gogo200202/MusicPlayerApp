@@ -8,7 +8,7 @@ function AboutPage() {
       </div>
       <div className="flex justify-center text-2xl items-center mx-20 text-slate-50">
         This is just demonstration for my front end skill this site is not
-        functional and dose not connect to any back end. 
+        functional and dose not connect to any back end.
       </div>
     </>
   );
